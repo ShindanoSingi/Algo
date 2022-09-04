@@ -147,7 +147,7 @@ function minimalHeaviestSetA(arr) {
     }
 }
 
-// isPrime
+//
 function isPrime(input) {
   if(input < 2){
     return false
@@ -155,7 +155,7 @@ function isPrime(input) {
     else if(input === 2){
       return true
     }
-  else {
+  else{
     for (let i = 2; i <= input - 1; i++){
       if (input % i === 0) {
         return false;
@@ -166,5 +166,4 @@ function isPrime(input) {
 }
 
 const respo = isPrime(1)
-// console.log(respo)
-
+console.log(respo)
