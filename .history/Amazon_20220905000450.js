@@ -224,21 +224,3 @@ let c = [0,0,1,0,0,1,0]
 
 // Amazon hackerrank
 https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-
-function repeatedString(s, n) {
-  let count = 0
-  for(let i = 0; i < s.length; i++){
-      if(s.charAt(i) === "a"){
-      count++;
-  }
-}
-
-count = Math.floor(n/s.length) * count;
-
-for(let j = 0; j < n%s.length; j++){
-if(s.charAt(j)==='a'){
-  count++;
-}
-}
-return count
-}

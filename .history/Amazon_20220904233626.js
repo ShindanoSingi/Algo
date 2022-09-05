@@ -222,23 +222,17 @@ function jumpingOnClouds(c) {
 let c = [0,0,1,0,0,1,0]
 //console.log(jumpingOnClouds(c))
 
-// Amazon hackerrank
-https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+let s = "a"
+let n = 1000000000000
+let count = 0
+for(let i = 0; i < n - 1; i++){
+  s+="aba"
 
-function repeatedString(s, n) {
-  let count = 0
-  for(let i = 0; i < s.length; i++){
-      if(s.charAt(i) === "a"){
-      count++;
+}
+for(let j = 0; j < n; j++){
+  if(s.charAt(j)==='a'){
+    count++;
   }
 }
-
-count = Math.floor(n/s.length) * count;
-
-for(let j = 0; j < n%s.length; j++){
-if(s.charAt(j)==='a'){
-  count++;
-}
-}
-return count
-}
+console.log(s)
+console.log(count)

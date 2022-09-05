@@ -168,77 +168,45 @@ function minimalHeaviestSetA(arr) { // Write your code here
 }
 
 // isPrime
-function isPrime(n) {
- let m = Math.ceil(Math.sqrt(n));
- let res = n/m
- if (Number.isInteger(res)) return false;
- return true;
+function isPrime(input) {
+  if (input < 2) {
+    return false
+  } else if (input === 2) {
+    return true
+  } else {
+    for (let i = 2; i <= input - 1; i++) {
+      if (input % i === 0) {
+        return false;
+      }
+      return true;
+    }
+  }
 }
 
-const respo = isPrime(2017)
- //console.log(respo)
+const respo = isPrime(1)
+// console.log(respo)
 
 // Structy
 const maxValue = (nums) => {
-  nums.sort((a,b)=>a-b)
+  nums.sort()
   if (nums.length === 1) {
     return nums[0];
   } else {
     let min = 0;
     let max = 0;
-    for (let i = 0; i < nums.length; i++) {
-        if (nums[i + 1] > nums[i]) {
-          max = nums[i + 1];
-        } else {
+    for (let i = 0; i < nums.length-1; i++) {
+      for (let j = 1; j < nums.length; j++) {
+         if (nums[i] < nums[j]) {
           min = nums[i];
-        }
+      } else {
+        max = nums[j];
       }
-      return max;
+      }return max;
     }
-}
 
-const nums = [5];
-//console.log(maxValue(nums))
-
-// Amazon hackerrank
-// https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-function jumpingOnClouds(c) {
-  let countJump = 0;
-  let cLen = c.length
-  for(let i = 0; i < c.length + 1; i += 1){
-      if (((c[i] === 0) && (c[i + 1] === 0)) || ((c[i] === 0) && (c[i + 1] === 1))){
-          countJump++;
-          }
-      if (((c[i] === 0) && (c[i + 1] === 0) && (c[i + 2] === 0))){
-          countJump--;
-          }
-      if ((c[i] === 1) && (c[i + 1] === 0)){
-          countJump += 0;
-          }
-  }
-  return countJump
-}
-
-let c = [0,0,1,0,0,1,0]
-//console.log(jumpingOnClouds(c))
-
-// Amazon hackerrank
-https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-
-function repeatedString(s, n) {
-  let count = 0
-  for(let i = 0; i < s.length; i++){
-      if(s.charAt(i) === "a"){
-      count++;
   }
 }
 
-count = Math.floor(n/s.length) * count;
+const nums = [101,3,5];
 
-for(let j = 0; j < n%s.length; j++){
-if(s.charAt(j)==='a'){
-  count++;
-}
-}
-return count
-}
+console.log(maxValue(nums))

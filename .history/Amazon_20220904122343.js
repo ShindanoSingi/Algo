@@ -1,12 +1,6 @@
 // 1. Recursion
 function sum(n) {
-  if (n === 0)
-    return 0
-
-
-
-
-
+  if (n === 0) return 0
   return n + sum(n - 1)
 }
 const sums = sum(10000)
@@ -14,39 +8,16 @@ const sums = sum(10000)
 
 // 2. Search
 function search(n, array) {
-  if (array.includes(n))
-    return true
-
-
-
-
-
+  if (array.includes(n)) return true
   return false
 }
-let arr = [
-  1,
-  5,
-  8,
-  9,
-  11,
-  13,
-  15,
-  19,
-  21
-]
+let arr = [1, 5, 8, 9, 11, 13, 15, 19, 21]
 // console.log(search(2, arr))
 
 // 3. Fibonacci
 function fibonacci(n) {
-  if (n === 0)
-    return 0
-   else if (n === 1)
-    return 1
-
-
-
-
-
+  if (n === 0) return 0
+  else if (n === 1) return 1
   return fibonacci(n - 1) + fibonacci(n - 2)
 }
 // console.log(fibonacci(9))
@@ -67,13 +38,19 @@ function palindrome(n) {
   } else {
     if (stringNumber.length % 2 === 0) {
       let arr1 = stringNumber.slice(0, stringNumber.length / 2)
-      let arr2 = stringNumber.slice(stringNumber.length / 2, stringNumber.length)
+      let arr2 = stringNumber.slice(
+        stringNumber.length / 2,
+        stringNumber.length
+      )
       let arr2Reverse = arr2.split("").reverse().join("")
       return arr2Reverse === arr1
     }
     if (stringNumber.length % 2 !== 0) {
       let arr1 = stringNumber.slice(0, stringNumber.length / 2)
-      let arr2 = stringNumber.slice(stringNumber.length / 2 + 1, stringNumber.length)
+      let arr2 = stringNumber.slice(
+        stringNumber.length / 2 + 1,
+        stringNumber.length
+      )
       let arr2Reverse = arr2.split("").reverse().join("")
       return arr2Reverse === arr1
     }
@@ -92,7 +69,7 @@ function romanToInt(rom) {
     L: 50,
     C: 100,
     D: 500,
-    M: 1000
+    M: 1000,
   }
 
   for (let i = 0; i < arrayStringRoman.length; i++) {
@@ -124,7 +101,8 @@ let str = "iiix"
 // console.log(romanToInt(str))
 
 // 6. Longest Common Prefix
-function longestCommonPrefix(strs) { // Longest common prefix string
+function longestCommonPrefix(strs) {
+  // Longest common prefix string
   let longestCommonPrefix = ""
   // Base condition
   if (strs == null || strs.length == 0) {
@@ -136,7 +114,8 @@ function longestCommonPrefix(strs) { // Longest common prefix string
     minimumLength = Math.min(minimumLength, strs[i].length)
   }
   // Loop for the minimum length
-  for (let i = 0; i < minimumLength; i++) { // Get the current character from first string
+  for (let i = 0; i < minimumLength; i++) {
+    // Get the current character from first string
     let current = strs[0][i]
     // Check if this character is found in all other strings or not
     for (let j = 0; j < strs.length; j++) {
@@ -154,91 +133,57 @@ let strs = ["flower", "flow", "flight"]
 
 
 // Amazon
-function minimalHeaviestSetA(arr) { // Write your code here
-  let A = [];
-  let B = [];
+function minimalHeaviestSetA(arr) {
+    // Write your code here
+    let A = [];
+    let B = [];
 
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i] % 2 === 0) {
-      A.push(arr[i])
-      B.push(arr[i])
+    for(let i = 0; i < arr.length; i++){
+        if(arr[i]%2===0){
+            A.push(arr[i])
+            B.push(arr[i])
+        }
+
     }
-
-  }
 }
 
 // isPrime
-function isPrime(n) {
- let m = Math.ceil(Math.sqrt(n));
- let res = n/m
- if (Number.isInteger(res)) return false;
- return true;
+function isPrime(input) {
+  if(input < 2){
+    return false
+  }
+    else if(input === 2){
+      return true
+    }
+  else {
+    for (let i = 2; i <= input - 1; i++){
+      if (input % i === 0) {
+        return false;
+      }
+    return true;
+  }
+  }
 }
 
-const respo = isPrime(2017)
- //console.log(respo)
+const respo = isPrime(1)
+// console.log(respo)
 
 // Structy
 const maxValue = (nums) => {
-  nums.sort((a,b)=>a-b)
+  let min = nums[0]
+  let max = 0;
   if (nums.length === 1) {
-    return nums[0];
-  } else {
-    let min = 0;
-    let max = 0;
+    return `The max is ${nums[0]}.`;
+  }
+  else {
     for (let i = 0; i < nums.length; i++) {
-        if (nums[i + 1] > nums[i]) {
-          max = nums[i + 1];
-        } else {
-          min = nums[i];
-        }
+      if (nums[i + 1] > min) {
+        max = nums[i + 1];
       }
-      return max;
     }
-}
-
-const nums = [5];
-//console.log(maxValue(nums))
-
-// Amazon hackerrank
-// https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-function jumpingOnClouds(c) {
-  let countJump = 0;
-  let cLen = c.length
-  for(let i = 0; i < c.length + 1; i += 1){
-      if (((c[i] === 0) && (c[i + 1] === 0)) || ((c[i] === 0) && (c[i + 1] === 1))){
-          countJump++;
-          }
-      if (((c[i] === 0) && (c[i + 1] === 0) && (c[i + 2] === 0))){
-          countJump--;
-          }
-      if ((c[i] === 1) && (c[i + 1] === 0)){
-          countJump += 0;
-          }
-  }
-  return countJump
-}
-
-let c = [0,0,1,0,0,1,0]
-//console.log(jumpingOnClouds(c))
-
-// Amazon hackerrank
-https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-
-function repeatedString(s, n) {
-  let count = 0
-  for(let i = 0; i < s.length; i++){
-      if(s.charAt(i) === "a"){
-      count++;
+    return max;
   }
 }
 
-count = Math.floor(n/s.length) * count;
-
-for(let j = 0; j < n%s.length; j++){
-if(s.charAt(j)==='a'){
-  count++;
-}
-}
-return count
-}
+const nums = [5,4];
+console.log(maxValue(nums));

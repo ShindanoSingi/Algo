@@ -176,7 +176,7 @@ function isPrime(n) {
 }
 
 const respo = isPrime(2017)
- //console.log(respo)
+ console.log(respo)
 
 // Structy
 const maxValue = (nums) => {
@@ -200,45 +200,29 @@ const maxValue = (nums) => {
 const nums = [5];
 //console.log(maxValue(nums))
 
-// Amazon hackerrank
-// https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
+
 function jumpingOnClouds(c) {
   let countJump = 0;
-  let cLen = c.length
-  for(let i = 0; i < c.length + 1; i += 1){
-      if (((c[i] === 0) && (c[i + 1] === 0)) || ((c[i] === 0) && (c[i + 1] === 1))){
-          countJump++;
+  if(c.length < 3){
+      return countJump
+  }else{
+      for(let i = 0; i < c.length; i++){
+          if(((c[i] === 0) && (c[i + 1]) === 0)){
+              countJump += 1
           }
-      if (((c[i] === 0) && (c[i + 1] === 0) && (c[i + 2] === 0))){
-          countJump--;
+          else if(((c[i] === 0) && (c[i + 1]) === 1)){
+              countJump += 1
           }
-      if ((c[i] === 1) && (c[i + 1] === 0)){
-          countJump += 0;
+           else if(((c[i] === 1) && (c[i + 1]) === 0)){
+              countJump -= 1
           }
-  }
-  return countJump
-}
-
-let c = [0,0,1,0,0,1,0]
-//console.log(jumpingOnClouds(c))
-
-// Amazon hackerrank
-https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true&h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=warmup
-
-function repeatedString(s, n) {
-  let count = 0
-  for(let i = 0; i < s.length; i++){
-      if(s.charAt(i) === "a"){
-      count++;
+          else{
+              countJump += 0
+          }
+      }
+      return countJump
   }
 }
 
-count = Math.floor(n/s.length) * count;
-
-for(let j = 0; j < n%s.length; j++){
-if(s.charAt(j)==='a'){
-  count++;
-}
-}
-return count
-}
+let c = [0,0,0,1,0,0]
+console.log(jumpingOnClouds(c))
