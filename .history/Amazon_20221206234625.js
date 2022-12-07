@@ -1,10 +1,10 @@
 // 1. Recursion
 function sum(n) {
-     if (n === 0)
+     if (n === 0) 
           return 0
 
 
-
+     
 
 
      return n + sum(n - 1)
@@ -14,11 +14,11 @@ const sums = sum(10000)
 
 // 2. Search
 function search(n, array) {
-     if (array.includes(n))
+     if (array.includes(n)) 
           return true
 
 
-
+     
 
 
      return false
@@ -38,13 +38,13 @@ let arr = [
 
 // 3. Fibonacci
 function fibonacci(n) {
-     if (n === 0)
+     if (n === 0) 
           return 0
-      else if (n === 1)
+      else if (n === 1) 
           return 1
 
 
-
+     
 
 
      return fibonacci(n - 1) + fibonacci(n - 2)
@@ -171,9 +171,9 @@ function minimalHeaviestSetA(arr) { // Write your code here
 function isPrime(n) {
      let m = Math.ceil(Math.sqrt(n));
      let res = n / m
-     if (Number.isInteger(res))
+     if (Number.isInteger(res)) 
           return false;
-
+     
 
 
      return true;
@@ -334,9 +334,9 @@ function hourglassSum(arr) {
 var isValid = function (s) {
      let originalStringToArray = Array.from(s).reverse();
      let flippedS = originalStringToArray.reverse();
-     if (s.length < 2)
+     if (s.length < 2) 
           return false;
-
+     
 
 
      if (s.length === 2) {
@@ -606,20 +606,4 @@ var rob = function (nums) {
 // console.log(rob([1, 5, 2, 4]))
 
 // First non-repeating character
-function firstNonRepeatingCharacter(string) {
-     // Write your code here.
-     const hash = {};
-   for (let char of string){
-     if(!(char in hash)){
-       hash[char] = 0;
-       else{
-         hash[char]++
-       }
-     }
-     for (const ch of string){
-       if(char[ch] === 1){
-         return string.indexOf(ch)
-       }
-     }
-     return -1
-   }
+

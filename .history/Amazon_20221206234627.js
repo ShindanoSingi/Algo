@@ -606,20 +606,4 @@ var rob = function (nums) {
 // console.log(rob([1, 5, 2, 4]))
 
 // First non-repeating character
-function firstNonRepeatingCharacter(string) {
-     // Write your code here.
-     const hash = {};
-   for (let char of string){
-     if(!(char in hash)){
-       hash[char] = 0;
-       else{
-         hash[char]++
-       }
-     }
-     for (const ch of string){
-       if(char[ch] === 1){
-         return string.indexOf(ch)
-       }
-     }
-     return -1
-   }
+
