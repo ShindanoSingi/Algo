@@ -686,13 +686,13 @@ function threeNumberSum(array, targetSum) {
      // Write your code here.
      let resultArray = []
      const sorted = array.sort((a,b) => a - b)
-
+      
      for (let i = 0; i < sorted.length; i++) {
        if(array[i] >= targetSum){
          break
        }
      let start = i + 1, end = sorted.length - 1;
-
+   
      while (start < end) {
        const sum = sorted[i] + sorted[start] + sorted[end]
        if (sum === targetSum) {
@@ -704,7 +704,7 @@ function threeNumberSum(array, targetSum) {
        } else{
          end--
        }
-     }
+     }  
      }
      console.log(resultArray)
      return resultArray
